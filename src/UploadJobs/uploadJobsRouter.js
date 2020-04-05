@@ -41,7 +41,7 @@ uploadJobsRouter
 
     UploadJobs.insertJobs(
       req.app.get('db'),
-      serializejobs
+      serializejobs(jobs)
     )
       .then((serializejobs) => {
         res 
