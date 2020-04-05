@@ -10,7 +10,6 @@ const uploadJobsRouter = express.Router();
 const bodyParser = express.json();
 
 const serializejobs = (jobs) => ({
-  id: jobs.id,
   title: xss(jobs.title),
   company: xss(jobs.company),
   salary_range: jobs.salary_range,
@@ -33,7 +32,7 @@ uploadJobsRouter
     //   return res.status(400).send(`'link' is required`)
     // }
 
-    const jobs = { id: uuidv4(), title, company, salary_range, description, link } 
+    const jobs = { title, company, salary_range, description, link } 
 
     // job.push(jobs)
 
@@ -41,7 +40,7 @@ uploadJobsRouter
 
     UploadJobs.insertJobs(
       req.app.get('db'),
-      serializejobs(jobs)
+      serializejobs
     )
       .then((serializejobs) => {
         res 
