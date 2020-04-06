@@ -39,7 +39,6 @@ describe('POST /api/uploadjobs', () => {
         expect(res.body.company).to.eql(newJob.company)
         expect(res.body.description).to.eql(newJob.description)
         expect(res.body.link).to.eql(newJob.link)
-
       })
   });
 });
