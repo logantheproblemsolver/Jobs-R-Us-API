@@ -4,8 +4,7 @@ const morgan = require ('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const {NODE_ENV} = require('./config');
-const viewJobsRouter = require('./ViewJobs/viewJobsRouter')
-const uploadJobsRouter = require('./UploadJobs/uploadJobsRouter')
+const JobsRouter = require('./JobsRouter/JobsRouter')
 
 const app = express();
 
@@ -23,8 +22,7 @@ app.get('/', (req, res) => {
     res.send("Hello, world!")
 });
 
-app.use(viewJobsRouter);
-app.use(uploadJobsRouter);
+
 
 app.use(function errorHandler(error, req, res, next) {
     console.log(error)
@@ -38,8 +36,6 @@ app.use(function errorHandler(error, req, res, next) {
     res.status(500).json(response);
 });
 
-
-
-
+app.use(JobsRouter);
 
 module.exports = app;
