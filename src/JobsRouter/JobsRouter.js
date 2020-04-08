@@ -1,6 +1,6 @@
 const express = require('express');
-const logger = require('../logger');
 const xss = require('xss');
+const logger = require('../logger');
 const JobsService = require('./JobsService')
 
 const JobsRouter = express.Router();
@@ -27,10 +27,10 @@ JobsRouter
   .post(bodyParser, (req, res, next) => {
     const { title, company, salary_range, description, link } = req.body;
 
-    const jobs = { title, company, salary_range, description, link } 
+    const jobs = { title, company, salary_range, description, link };
 
 
-    logger.info(`Job with id ${jobs.id} created`)
+    logger.info(`Job with id ${jobs.id} created`);
 
     JobsService.insertJobs(req.app.get("db"), jobs)
     .then((insertedJobs) => {
@@ -40,8 +40,6 @@ JobsRouter
         .json(serializejobs(insertedJobs));
     })
     .catch(next);
-  })
-
-
+  });
 
 module.exports = JobsRouter;
