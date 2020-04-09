@@ -7,6 +7,7 @@ const JobsRouter = express.Router();
 const bodyParser = express.json();
 
 const serializejobs = (jobs) => ({
+  id: jobs.id,
   title: xss(jobs.title),
   company: xss(jobs.company),
   salary_range: jobs.salary_range,
