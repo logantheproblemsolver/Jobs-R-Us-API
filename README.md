@@ -8,14 +8,15 @@ It's online using Heroku and Heroku Database!
 
 Future implementations will include a DELETE method and the ability to GET retrieve a job by ID. 
 
+With this API users have the ability to either upload a job or view uploaded jobs. In the near future there will be a later release with a DELETE request and the ability to get jobs with the given ID.
 
-<h1>API Documentation</h1>
+<h2>API Documentation</h2>
 
 The link for the API is- https://thawing-fjord-73605.herokuapp.com/api/jobs
 
 There are two methods for the endpoint. GET and POST. 
 
-<h2>GET Request</h2>
+<h3>GET Request</h3>
 
 GET request data comes in a JSON format. 
 The format looks like: 
@@ -30,7 +31,7 @@ The format looks like:
 
 If you just map over the data and call their respective values it'll do the trick!
 
-<h2>POST Request</h2>
+<h3>POST Request</h3>
 
 The POST request accepts data in JSON format. 
 
