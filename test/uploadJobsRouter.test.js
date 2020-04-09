@@ -22,7 +22,7 @@ describe('Upload jobs endpoint', () => {
 
 
 
-describe('POST /api/uploadjobs', () => {
+describe('POST /api/jobs', () => {
   it('adds a new job to the database', () => {
     const newJob = {
       title: 'test-title',
@@ -31,7 +31,7 @@ describe('POST /api/uploadjobs', () => {
       link: 'https://test.com',
     }
     return supertest(app)
-      .post(`/api/uploadjobs`)
+      .post(`/api/jobs`)
       .send(newJob)
       .expect(201)
       .expect(res => {

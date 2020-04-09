@@ -19,10 +19,10 @@ describe('Show all jobs endpoint', () => {
 
   afterEach('cleanup', () => db('jobs').truncate());
 
-  describe('GET /api/viewjobs', () => {
+  describe('GET /api/jobs', () => {
     context('Given no jobs', () => {
       it('responds with 200 and an empty list', () => supertest(app)
-        .get('/api/viewjobs')
+        .get('/api/jobs')
         .expect(200, []));
     });
     context('Given there are jobs', () => {
@@ -34,7 +34,7 @@ describe('Show all jobs endpoint', () => {
       );
 
       it('responds with 200 and the jobs', () => supertest(app)
-        .get('/api/viewjobs')
+        .get('/api/jobs')
         .expect(200, testJobs)
         )
       
